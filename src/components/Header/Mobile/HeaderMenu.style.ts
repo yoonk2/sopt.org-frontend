@@ -9,7 +9,7 @@ interface CloseButtonProps extends RootProps {
 }
 
 interface MenuTitleProps {
-  isSelected: boolean;
+  isSelected?: boolean;
 }
 
 interface RootProps {
@@ -124,8 +124,14 @@ export const MenuTitlesWrap = styled.div`
   padding-bottom: 30px;
 `;
 
-export const MenuTitle = styled.a<MenuTitleProps>`
-  font-family: 'SUIT';
+export const MenuTitleAnchor = styled.a`
+  display: block;
+
+  color: inherit;
+  text-decoration: none;
+`;
+
+export const MenuTitle = styled.div<MenuTitleProps>`
   font-size: 16px;
   font-weight: 500;
   line-height: 32px;
@@ -139,6 +145,7 @@ export const MenuTitle = styled.a<MenuTitleProps>`
     padding-right: 40px;
   }
 `;
+
 export const Rules = styled.a`
   cursor: pointer;
   text-decoration-line: underline;
@@ -147,7 +154,6 @@ export const Rules = styled.a`
   letter-spacing: -0.04em;
 
   color: #a9a9a9;
-  font-family: 'SUIT';
   font-size: 15px;
   font-weight: 800;
 `;
@@ -162,7 +168,6 @@ export const ChannelTitle = styled.p`
   letter-spacing: -0.04em;
 
   color: ${({ theme }) => theme.colors.soptWhite};
-  font-family: 'SUIT';
   font-size: 14px;
   font-weight: 600;
 `;

@@ -1,32 +1,44 @@
 import styled from '@emotion/styled';
-import logoIcon from '@src/assets/sopt/logo.png';
+import Link from 'next/link';
+import { LOGO_IMAGE_URL } from '@src/assets/sopt/logo';
 import useHeader from '@src/hooks/useHeader';
+import { menuTapList } from '../menuTapList';
+import { MenuTapType } from '../types';
 
-function DesktopHeader({ menuList }: { menuList: { id: string; title: string }[] }) {
-  const { handleClickLogo, handleClickTap, handleIsSelected } = useHeader();
+function DesktopHeader() {
+  const { handleClickLogo, handleIsSelected } = useHeader();
 
   return (
     <Wrapper>
       <CenterAligner>
-        <Logo src={logoIcon.src} onClick={handleClickLogo} />
+        <Logo onClick={handleClickLogo} />
       </CenterAligner>
       <MenuTitlesWrapper>
-        {menuList.map(({ id, title }) => (
-          <MenuTitle key={id} id={id} isSelected={handleIsSelected(id)} onClick={handleClickTap}>
-            {title}
-          </MenuTitle>
-        ))}
+        {menuTapList.map(({ type, title, href }) => {
+          switch (type) {
+            case MenuTapType.Anchor:
+              return (
+                <MenuTitle key={title}>
+                  <MenuTitleAnchor href={href} target="_blank" rel="noreferrer">
+                    {title}
+                  </MenuTitleAnchor>
+                </MenuTitle>
+              );
+            case MenuTapType.Router:
+              return (
+                <Link key={title} href={href}>
+                  <MenuTitle isSelected={handleIsSelected(href)}>{title}</MenuTitle>
+                </Link>
+              );
+          }
+        })}
       </MenuTitlesWrapper>
     </Wrapper>
   );
 }
 
-interface StyleProps {
-  src: string;
-}
-
 interface MenuTitleProps {
-  isSelected: boolean;
+  isSelected?: boolean;
 }
 
 export const Wrapper = styled.div`
@@ -42,12 +54,12 @@ export const CenterAligner = styled.div`
   align-items: center;
 `;
 
-export const Logo = styled.button<StyleProps>`
+export const Logo = styled.button`
   width: 87px;
   height: 30px;
   margin-left: 100px;
 
-  background: url(${({ src }) => src}) center no-repeat;
+  background: url(${LOGO_IMAGE_URL}) center no-repeat;
   background-size: 100% 100%;
   cursor: pointer;
 
@@ -65,8 +77,14 @@ export const MenuTitlesWrapper = styled.div`
   align-items: center;
 `;
 
-export const MenuTitle = styled.a<MenuTitleProps>`
-  font-family: 'SUIT';
+export const MenuTitleAnchor = styled.a`
+  display: block;
+
+  color: inherit;
+  text-decoration: none;
+`;
+
+export const MenuTitle = styled.div<MenuTitleProps>`
   font-size: 18px;
   line-height: 36px;
   font-weight: ${({ isSelected }) => (isSelected ? '700' : '500')};

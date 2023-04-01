@@ -61,6 +61,7 @@ const Styled = {
     border-radius: 10px;
     padding: 56px;
     padding-right: 54px;
+    cursor: pointer;
     /* 태블릿 뷰 */
     @media (max-width: 1919.9px) and (min-width: 766px) {
       font-size: 25px;
@@ -82,7 +83,6 @@ const Styled = {
     }
   `,
   Title: styled.h1`
-    font-family: 'SUIT';
     font-weight: 700;
     font-size: 30px;
     line-height: 100%;
@@ -132,7 +132,6 @@ const Styled = {
     transform: ${({ isOpened }) => (isOpened ? 'rotate(90deg)' : 'rotate(0deg')};
   `,
   Content: styled.div`
-    font-family: 'Pretendard';
     font-weight: 400;
     font-size: 25px;
     line-height: 40px;

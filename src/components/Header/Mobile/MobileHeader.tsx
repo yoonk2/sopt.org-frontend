@@ -4,15 +4,14 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import menuBar from '@src/assets/icons/menuBar.svg';
 import xButton from '@src/assets/icons/xButton.png';
-import logoIcon from '@src/assets/sopt/logo.png';
+import { LOGO_IMAGE_URL } from '@src/assets/sopt/logo';
 import { Condition } from '@src/lib';
+import { MenuState } from '../types';
 import HeaderMenu from './HeaderMenu';
 
-export type MenuType = 'idle' | 'open' | 'close';
-
-function MobileHeader({ menuList }: { menuList: { id: string; title: string }[] }) {
+function MobileHeader() {
   const router = useRouter();
-  const [isMenuShown, setIsMenuShown] = useState<MenuType>('idle');
+  const [isMenuShown, setIsMenuShown] = useState<MenuState>('idle');
 
   const handleHeaderToggleButton = () => {
     setIsMenuShown((prev) => (prev === 'open' ? 'close' : 'open'));
@@ -21,7 +20,7 @@ function MobileHeader({ menuList }: { menuList: { id: string; title: string }[] 
   return (
     <>
       <StyledHeader>
-        <Logo src={logoIcon.src} onClick={() => router.push('/')} />
+        <Logo onClick={() => router.push('/')} />
         <ToggleButton onClick={handleHeaderToggleButton}>
           <Image
             src={isMenuShown === 'open' ? xButton.src : menuBar}
@@ -31,18 +30,10 @@ function MobileHeader({ menuList }: { menuList: { id: string; title: string }[] 
         </ToggleButton>
       </StyledHeader>
       <Condition statement={isMenuShown === 'open'}>
-        <HeaderMenu
-          menuList={menuList}
-          isMenuShown={isMenuShown}
-          handleHeaderToggleButton={handleHeaderToggleButton}
-        />
+        <HeaderMenu isMenuShown={isMenuShown} handleHeaderToggleButton={handleHeaderToggleButton} />
       </Condition>
     </>
   );
-}
-
-interface StyleProps {
-  src: string;
 }
 
 export const StyledHeader = styled.div`
@@ -54,10 +45,10 @@ export const StyledHeader = styled.div`
   background-color: transparent;
 `;
 
-export const Logo = styled.button<StyleProps>`
+export const Logo = styled.button`
   width: 63px;
   height: 21px;
-  background: url(${({ src }) => src}) center no-repeat;
+  background: url(${LOGO_IMAGE_URL}) center no-repeat;
   background-size: 100% 100%;
   cursor: pointer;
 `;
