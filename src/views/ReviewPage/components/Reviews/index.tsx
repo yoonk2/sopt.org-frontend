@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
 import { useIsMobile } from '@src/hooks/useDevice';
+import { ExtraPart } from '@src/lib/types/universal';
 import { OvalSpinner } from '@src/views/ProjectPage/components';
 import useFetch from '../../hooks/useFetch';
 import { logoPath } from '../../libs/constants';
-import { TAB } from '../../types';
 import * as S from './style';
 
 type ReviewsProps = {
-  selectedTab: TAB;
+  selectedTab: ExtraPart;
 };
 
 const Reviews = ({ selectedTab }: ReviewsProps) => {
@@ -23,12 +23,12 @@ const Reviews = ({ selectedTab }: ReviewsProps) => {
         {reviews.data.map((review, idx) => (
           <S.Card key={`${review.id}-${idx}`} href={review.link} target="_blank">
             <S.Section>
-              <S.ThumbnailWrapper css={{ height: imageHeight }}>
+              <S.ThumbnailWrapper>
                 <S.Thumbnail
                   src={logoPath[review.semester]}
                   alt={review.title}
                   width={120}
-                  height="100%"
+                  height={imageHeight}
                 />
               </S.ThumbnailWrapper>
               <S.ChipWrapper>

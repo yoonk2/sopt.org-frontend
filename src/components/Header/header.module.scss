@@ -15,11 +15,11 @@
   @include tablet {
     height: 48px;
     padding: 12px 48px;
-    justify-content: space-between;
   }
 
   @include mobile {
     height: 48px;
+    min-height: 48px;
     padding: 12px 20px;
     justify-content: space-between;
   }

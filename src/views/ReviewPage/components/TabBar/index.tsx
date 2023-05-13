@@ -1,10 +1,10 @@
+import { ExtraPart, ExtraTabType } from '@src/lib/types/universal';
 import { tabs } from '../../libs/constants';
-import { TAB, TabType } from '../../types';
 import * as S from './style';
 
 type TabBarProps = {
-  selectedTab: TAB;
-  onTabClick(targetTab: TAB): void;
+  selectedTab: ExtraPart;
+  onTabClick(targetTab: ExtraPart): void;
 };
 
 const TabBar = ({ onTabClick, selectedTab }: TabBarProps) => {
@@ -24,7 +24,7 @@ const TabBar = ({ onTabClick, selectedTab }: TabBarProps) => {
 
 type TabProps = {
   onClick(): void;
-  tab: TabType;
+  tab: ExtraTabType;
   selected: boolean;
 };
 

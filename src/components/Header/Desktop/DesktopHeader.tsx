@@ -26,9 +26,9 @@ function DesktopHeader() {
               );
             case MenuTapType.Router:
               return (
-                <Link key={title} href={href}>
-                  <MenuTitle isSelected={handleIsSelected(href)}>{title}</MenuTitle>
-                </Link>
+                <MenuTitle key={title} isSelected={handleIsSelected(href)}>
+                  <Link href={href}>{title}</Link>
+                </MenuTitle>
               );
           }
         })}
@@ -57,7 +57,6 @@ export const CenterAligner = styled.div`
 export const Logo = styled.button`
   width: 87px;
   height: 30px;
-  margin-left: 100px;
 
   background: url(${LOGO_IMAGE_URL}) center no-repeat;
   background-size: 100% 100%;
@@ -77,7 +76,7 @@ export const MenuTitlesWrapper = styled.div`
   align-items: center;
 `;
 
-export const MenuTitleAnchor = styled.a`
+export const MenuTitleAnchor = styled(Link)`
   display: block;
 
   color: inherit;
