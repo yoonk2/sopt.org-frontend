@@ -1,25 +1,9 @@
 import Link from 'next/link';
-import { useEffect } from 'react';
 import useHeader from '@src/hooks/useHeader';
+import useNoScroll from '@src/hooks/useNoScroll';
 import { menuTapList } from '../menuTapList';
 import { MenuState, MenuTapType } from '../types';
 import * as S from './HeaderMenu.style';
-
-function useNoScroll(isMenuShown: MenuState) {
-  useEffect(() => {
-    if (isMenuShown === 'open') {
-      document.body.style.overflow = 'hidden';
-    } else {
-      return () => {
-        document.body.style.overflow = 'auto';
-      };
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isMenuShown]);
-}
 
 interface HeaderMenuProps {
   isMenuShown: MenuState;
