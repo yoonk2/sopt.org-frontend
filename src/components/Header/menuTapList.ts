@@ -12,18 +12,29 @@ export const menuTapList: MenuTapList = [
     href: '/project',
   },
   {
-    type: MenuTapType.Router,
-    title: '활동후기',
-    href: '/review',
+    type: MenuTapType.Parent,
+    title: '블로그',
+    children: [
+      {
+        type: MenuTapType.Router,
+        title: '활동후기',
+        href: '/review',
+      },
+      {
+        type: MenuTapType.Router,
+        title: '솝티클',
+        href: '/sopticle',
+      },
+    ],
   },
   {
     type: MenuTapType.Router,
-    title: '문의하기',
-    href: '/FAQ',
+    title: '후원',
+    href: '/sponsor',
   },
   {
     type: MenuTapType.Anchor,
-    title: '리크루팅',
+    title: '지원하기',
     href: 'https://sopt-recruiting.web.app/recruiting/apply/yb',
   },
 ];

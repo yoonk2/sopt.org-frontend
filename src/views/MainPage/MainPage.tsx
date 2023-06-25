@@ -3,8 +3,6 @@ import {
   ActivityDescription,
   ActivityReview,
   BannerImage,
-  CoporatePartner,
-  CorporateLinkedActivities,
   DetailedInformation,
   PartDescription,
   SoptHistory,
@@ -25,8 +23,6 @@ function MainPage() {
             <ActivityDescription />
             <DetailedInformation />
             <ActivityReview />
-            <CoporatePartner />
-            <CorporateLinkedActivities />
           </div>
         </div>
         <Footer />

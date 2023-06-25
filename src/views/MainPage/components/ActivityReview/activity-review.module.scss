@@ -7,14 +7,17 @@
   @include mobile {
     width: 90%;
     gap: 48px;
+    margin-bottom: 120px;
   }
   @include tablet {
     width: 75%;
     gap: 100px;
+    margin-bottom: 180px;
   }
   @include desktop {
     width: 100%;
     gap: 100px;
+    margin-bottom: 150px;
   }
 }
 
@@ -175,7 +178,7 @@
 }
 
 .descWrapper {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
@@ -206,16 +209,16 @@
 }
 
 .arrow {
-    @include mobile {
-      width: 17px;
-      height: 15px;
-    }
-    @include tablet {
-      width: 30px;
-      height: 30px;
-    }
-    @include desktop {
-      width: 30px;
-      height: 30px;
-    }
+  @include mobile {
+    width: 17px;
+    height: 15px;
+  }
+  @include tablet {
+    width: 30px;
+    height: 30px;
+  }
+  @include desktop {
+    width: 30px;
+    height: 30px;
+  }
 }
