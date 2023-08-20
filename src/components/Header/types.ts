@@ -14,6 +14,7 @@ export type ParentMenuTap = {
 
 export type SingleMenuTap = {
   type: MenuTapType.Router | MenuTapType.Anchor;
+  styleType: MenuTapType.Router | MenuTapType.Anchor;
   title: string;
   href: string;
 };

@@ -45,17 +45,30 @@ type MenuTapProps = {
 function MenuTap({ menuTap, handleIsSelected, isSubTapOpened, setIsSubTapOpened }: MenuTapProps) {
   switch (menuTap.type) {
     case MenuTapType.Anchor:
-      return (
-        <MenuTitleAnchor
-          href={menuTap.href}
-          target="_blank"
-          rel="noreferrer"
-          onClick={() => setIsSubTapOpened(false)}
-          onMouseEnter={() => setIsSubTapOpened(false)}
-        >
-          {menuTap.title}
-        </MenuTitleAnchor>
-      );
+      if (menuTap.styleType === MenuTapType.Anchor) {
+        return (
+          <MenuTitleAnchor
+            href={menuTap.href}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setIsSubTapOpened(false)}
+            onMouseEnter={() => setIsSubTapOpened(false)}
+          >
+            {menuTap.title}
+          </MenuTitleAnchor>
+        );
+      } else {
+        return (
+          <MenuTitle
+            isSelected={handleIsSelected(menuTap.href)}
+            onClick={() => setIsSubTapOpened(false)}
+            onMouseEnter={() => setIsSubTapOpened(false)}
+          >
+            <Link href={menuTap.href}>{menuTap.title}</Link>
+          </MenuTitle>
+        );
+      }
+
     case MenuTapType.Router:
       return (
         <MenuTitle
