@@ -1,14 +1,14 @@
 import styled from '@emotion/styled';
 import { Footer, Header, Layout, ScrollToTopButton } from '@src/components';
-import CirriculumSection from '../AboutPage/components/Cirriculum/Section';
-import useFetch from '../AboutPage/hooks/useFetch';
-import { ActivityReview } from '../MainPage/components';
+import { ActivityReview } from './components/ActivityReview/ActivityReview';
+import ChapterInfo from './components/ChapterInfo';
 import Contact from './components/Contact';
+import FaqInfo from './components/FAQ';
 import NotificationSection from './components/NotificationSection';
 import RecruiteeInfo from './components/RecruteeInfo';
+import Schedule from './components/Schedule';
 
 function Recruit() {
-  const aboutData = useFetch();
   return (
     <Layout>
       <Header />
@@ -17,9 +17,9 @@ function Recruit() {
         <NotificationSection />
         <ContentWrapper>
           <RecruiteeInfo />
-          {aboutData._TAG === 'OK' && (
-            <CirriculumSection cirriculums={aboutData.data.aboutInfo.curriculums} />
-          )}
+          <ChapterInfo />
+          <Schedule />
+          <FaqInfo />
           <Contact />
           <ActivityReview />
         </ContentWrapper>
@@ -57,10 +57,12 @@ const ContentWrapper = styled.div`
   /* 태블릿 뷰 */
   @media (max-width: 1199px) and (min-width: 766px) {
     width: 700px;
+    gap: 120px;
   }
   /* 모바일 뷰 */
   @media (max-width: 765.9px) {
     width: 360px;
+    gap: 80px;
   }
 `;
 

@@ -1,17 +1,33 @@
 import styled from '@emotion/styled';
-import { ReactComponent as ArrowRight } from '@src/views/ProjectPage/assets/icon/arrow-right-24x24.svg';
+import { useRef, useState } from 'react';
 
 const NotificationSection = () => {
+  const [isRegistered, setIsRegistered] = useState(false);
+  const emailInputRef = useRef<HTMLInputElement | null>(null);
+
+  const onRegister = async () => {
+    const email = emailInputRef.current?.value;
+    if (!email) return;
+    setIsRegistered(true);
+  };
+
   return (
     <Wrapper>
       <div>
         <TitleText>지금은 모집 기간이 아니에요.</TitleText>
         <TitleText>모집 기간이 되면 메일로 알려드릴게요.</TitleText>
       </div>
-      <RegisterButton>
-        <div>알림 신청하기</div>
-        <ArrowRight />
-      </RegisterButton>
+
+      <FormWrapper
+        onSubmit={(e) => {
+          e.preventDefault();
+          onRegister();
+        }}
+      >
+        <Input type="email" placeholder="메일을 입력해주세요" />
+        <SubmitButton type="submit" value="알림 신청하기" />
+      </FormWrapper>
+      {isRegistered && <ConfirmText>신청 완료되었습니다!</ConfirmText>}
     </Wrapper>
   );
 };
@@ -25,6 +41,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 31px;
+
+  /* 태블릿 뷰 */
+  @media (max-width: 1199px) and (min-width: 766px) {
+  }
+  /* 모바일 뷰 */
+  @media (max-width: 765.9px) {
+  }
 `;
 
 const TitleText = styled.div`
@@ -35,24 +58,109 @@ const TitleText = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 140%;
+
+  /* 태블릿 뷰 */
+  @media (max-width: 1199px) and (min-width: 766px) {
+    font-size: 30px;
+  }
+  /* 모바일 뷰 */
+  @media (max-width: 765.9px) {
+    font-size: 20px;
+    font-weight: 800;
+  }
 `;
 
-const RegisterButton = styled.div`
-  border-radius: 30px;
-  background: #504ebf;
-  width: 280px;
-  height: 64px;
+const FormWrapper = styled.form`
+  width: 100%;
+  max-width: 1000px;
+  height: 100px;
+  background-color: #000;
+  border-radius: 100px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+
+  /* 태블릿 뷰 */
+  @media (max-width: 1199px) and (min-width: 766px) {
+    height: 85px;
+    padding: 13px 15px;
+    max-width: 639px;
+  }
+  /* 모바일 뷰 */
+  @media (max-width: 765.9px) {
+    height: 50px;
+    padding: 8px 13px;
+    max-width: 330px;
+  }
+`;
+
+const Input = styled.input`
+  outline: none;
+  border: none;
+  background-color: transparent;
   color: white;
+  font-family: SUIT;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 42px */
+  padding-left: 30px;
+  flex: 1;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* 태블릿 뷰 */
+  @media (max-width: 1199px) and (min-width: 766px) {
+    font-size: 20px;
+  }
+  /* 모바일 뷰 */
+  @media (max-width: 765.9px) {
+    font-size: 12px;
+    padding-left: 12px;
+  }
+`;
+
+const SubmitButton = styled.input`
+  border-radius: 50px;
+  width: 184px;
+  background: #504ebf;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  font-family: SUIT;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
   line-height: 100%; /* 22px */
   letter-spacing: -0.22px;
-  & svg path {
-    stroke-opacity: 1;
+
+  /* 태블릿 뷰 */
+  @media (max-width: 1199px) and (min-width: 766px) {
+    width: 172px;
+    font-size: 20px;
+  }
+  /* 모바일 뷰 */
+  @media (max-width: 765.9px) {
+    width: 99px;
+    font-size: 12px;
+  }
+`;
+
+const ConfirmText = styled.div`
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 42px */
+
+  /* 태블릿 뷰 */
+  @media (max-width: 1199px) and (min-width: 766px) {
+  }
+  /* 모바일 뷰 */
+  @media (max-width: 765.9px) {
   }
 `;
 
