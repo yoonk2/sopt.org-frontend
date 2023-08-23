@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { useRef, useState } from 'react';
-import axios from 'axios';
 
 const NotificationSection = () => {
   const [isRegistered, setIsRegistered] = useState(false);
@@ -8,14 +7,14 @@ const NotificationSection = () => {
 
   const onRegister = async () => {
     try {
-      const email = emailInputRef.current?.value;
-      if (!email) return;
-      await axios.post('/api/register', {
-        email,
-      });
-      if (emailInputRef.current?.value) {
-        emailInputRef.current.value = '';
-      }
+      // const email = emailInputRef.current?.value;
+      // if (!email) return;
+      // await axios.post('/api/register', {
+      //   email,
+      // });
+      // if (emailInputRef.current?.value) {
+      //   emailInputRef.current.value = '';
+      // }
       setIsRegistered(true);
     } catch (e) {
       console.error(e);
