@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { useRef, useState } from 'react';
+import axios from 'axios';
 
 const NotificationSection = () => {
   const [isRegistered, setIsRegistered] = useState(false);
@@ -9,12 +10,8 @@ const NotificationSection = () => {
     try {
       const email = emailInputRef.current?.value;
       if (!email) return;
-      await fetch('/api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
+      await axios.post('/api/register', {
+        email,
       });
       if (emailInputRef.current?.value) {
         emailInputRef.current.value = '';
