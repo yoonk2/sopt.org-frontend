@@ -6,20 +6,23 @@ const NotificationSection = () => {
   const emailInputRef = useRef<HTMLInputElement | null>(null);
 
   const onRegister = async () => {
-    const email = emailInputRef.current?.value;
-    if (!email) return;
-    console.log('hello');
-    await fetch('/api/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email }),
-    });
-    if (emailInputRef.current?.value) {
-      emailInputRef.current.value = '';
+    try {
+      const email = emailInputRef.current?.value;
+      if (!email) return;
+      await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+      if (emailInputRef.current?.value) {
+        emailInputRef.current.value = '';
+      }
+      setIsRegistered(true);
+    } catch (e) {
+      console.error(e);
     }
-    setIsRegistered(true);
   };
 
   return (
