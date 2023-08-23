@@ -38,7 +38,7 @@ const NotificationSection = () => {
         <Input type="email" placeholder="메일을 입력해주세요" ref={emailInputRef} />
         <SubmitButton type="submit" value="알림 신청하기" />
       </FormWrapper>
-      {isRegistered && <ConfirmText>신청 완료되었습니다!</ConfirmText>}
+      <ConfirmText visible={isRegistered}>신청 완료되었습니다!</ConfirmText>
     </Wrapper>
   );
 };
@@ -160,18 +160,23 @@ const SubmitButton = styled.input`
   }
 `;
 
-const ConfirmText = styled.div`
+const ConfirmText = styled.div<{ visible: boolean }>`
+  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
   font-family: Pretendard;
-  font-size: 28px;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%; /* 42px */
+  line-height: 100%; /* 22px */
+  letter-spacing: -0.22px;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.5);
 
   /* 태블릿 뷰 */
   @media (max-width: 1199px) and (min-width: 766px) {
+    font-size: 20px;
   }
   /* 모바일 뷰 */
   @media (max-width: 765.9px) {
+    font-size: 12px;
   }
 `;
 

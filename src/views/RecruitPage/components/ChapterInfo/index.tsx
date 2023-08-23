@@ -111,7 +111,7 @@ const BaseText = styled.div`
   }
   /* 모바일 뷰 */
   @media (max-width: 765.9px) {
-    font-size: 18px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 27px */
@@ -122,6 +122,15 @@ const InfoWrapper = styled(BaseText)`
   border-radius: 10px;
   background: #504ebf;
   padding: 48px 80px;
+
+  /* 태블릿 뷰 */
+  @media (max-width: 1299px) and (min-width: 766px) {
+    padding: 24px 40px;
+  }
+  /* 모바일 뷰 */
+  @media (max-width: 765.9px) {
+    padding: 18px 30px;
+  }
 `;
 
 const FitWrapper = styled(BaseText)`
@@ -132,6 +141,15 @@ const FitWrapper = styled(BaseText)`
   flex-direction: column;
   line-height: 40px;
   gap: 12px;
+  /* 태블릿 뷰 */
+  @media (max-width: 1299px) and (min-width: 766px) {
+    padding: 30px 40px;
+  }
+  /* 모바일 뷰 */
+  @media (max-width: 765.9px) {
+    padding: 21px 28px;
+    gap: 8px;
+  }
 `;
 
 export default ChapterInfo;
