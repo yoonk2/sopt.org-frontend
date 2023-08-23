@@ -8,6 +8,17 @@ const NotificationSection = () => {
   const onRegister = async () => {
     const email = emailInputRef.current?.value;
     if (!email) return;
+    console.log('hello');
+    await fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
+    if (emailInputRef.current?.value) {
+      emailInputRef.current.value = '';
+    }
     setIsRegistered(true);
   };
 
@@ -24,7 +35,7 @@ const NotificationSection = () => {
           onRegister();
         }}
       >
-        <Input type="email" placeholder="메일을 입력해주세요" />
+        <Input type="email" placeholder="메일을 입력해주세요" ref={emailInputRef} />
         <SubmitButton type="submit" value="알림 신청하기" />
       </FormWrapper>
       {isRegistered && <ConfirmText>신청 완료되었습니다!</ConfirmText>}
