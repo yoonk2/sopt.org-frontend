@@ -94,7 +94,6 @@ const W = styled.div`
 
 const BaseText = styled.div`
   color: #fff;
-  font-family: Pretendard;
   font-size: 28px;
   font-style: normal;
   font-weight: 400;

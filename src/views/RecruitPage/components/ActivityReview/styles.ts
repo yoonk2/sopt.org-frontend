@@ -44,7 +44,6 @@ export const ContentWrapper = styled.div`
 `;
 export const MoreLinkWrapper = styled.a`
   color: #fff;
-  font-family: Pretendard;
   font-size: 25px;
   font-weight: 500;
   line-height: 40px; /* 160% */

@@ -45,19 +45,24 @@ const NotificationSection = () => {
 
 const Wrapper = styled.div`
   width: 100vw;
-  height: 440px;
+  height: 620px;
   background-color: rgba(255, 255, 255, 0.1);
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 31px;
+  padding-top: 90px;
 
   /* 태블릿 뷰 */
   @media (max-width: 1199px) and (min-width: 766px) {
+    padding-top: 0;
+    height: 440px;
   }
   /* 모바일 뷰 */
   @media (max-width: 765.9px) {
+    padding-top: 0;
+    height: 440px;
   }
 `;
 
@@ -162,7 +167,6 @@ const SubmitButton = styled.input`
 
 const ConfirmText = styled.div<{ visible: boolean }>`
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
-  font-family: Pretendard;
   font-style: normal;
   font-weight: 400;
   line-height: 100%; /* 22px */

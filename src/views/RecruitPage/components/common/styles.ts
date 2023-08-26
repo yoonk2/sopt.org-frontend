@@ -29,7 +29,6 @@ export const SectionTitle = styled.h3`
 
 export const SectionSubTitle = styled.h3`
   color: #787878;
-  font-family: Pretendard;
   font-size: 30px;
   font-weight: 400;
   line-height: 30px; /* 100% */

@@ -161,7 +161,6 @@ const IconWrapper = styled.div`
 
 const Title = styled.div`
   color: #787878;
-  font-family: Pretendard;
   font-size: 30px;
   font-weight: 400;
   line-height: 30px; /* 100% */
@@ -170,7 +169,6 @@ const Title = styled.div`
   /* 태블릿 뷰 */
   @media (max-width: 1299px) and (min-width: 766px) {
     color: #787878;
-    font-family: Pretendard;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -181,7 +179,6 @@ const Title = styled.div`
   /* 모바일 뷰 */
   @media (max-width: 765.9px) {
     color: #787878;
-    font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -193,7 +190,6 @@ const Title = styled.div`
 
 const Sub = styled.div`
   color: #fff;
-  font-family: Pretendard;
   font-size: 40px;
   font-weight: 600;
   line-height: 50px; /* 125% */
@@ -204,7 +200,6 @@ const Sub = styled.div`
   /* 태블릿 뷰 */
   @media (max-width: 1299px) and (min-width: 766px) {
     color: #fff;
-    font-family: Pretendard;
     font-size: 24.534px;
     font-style: normal;
     font-weight: 600;
@@ -215,7 +210,6 @@ const Sub = styled.div`
   /* 모바일 뷰 */
   @media (max-width: 765.9px) {
     color: #fff;
-    font-family: Pretendard;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
