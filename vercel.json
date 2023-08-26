@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/register",
+      "methods": ["POST"],
+      "allow": ["https://www.googleapis.com"]
+    }
+  ]
+}
