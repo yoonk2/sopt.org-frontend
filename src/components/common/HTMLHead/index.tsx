@@ -71,10 +71,7 @@ function HTMLHead(props: HeadProps) {
       <meta property="og:description" content={'대학생 연합 IT 벤처 창업 동아리'} />
       <meta
         property="og:image"
-        content={
-          projectImageURL ||
-          'https://s3.ap-northeast-2.amazonaws.com/sopt.org/admin/origin/img_sopt_homepage.png'
-        }
+        content="https://sopt-makers-internal.s3.ap-northeast-2.amazonaws.com//prod/image/project/2c75ff04-1950-4cf3-9167-4cb415e36474-%E1%84%8A%E1%85%A5%E1%86%B7%E1%84%82%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF+%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.png"
       />
       <meta property="og:image:alt" content="SOPT 공식 홈페이지 이미지" />
     </Head>
